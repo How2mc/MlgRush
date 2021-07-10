@@ -1,0 +1,4 @@
+name: Mlgrush
+version: ${project.version}
+main: deby_kymy.mlgrush.Mlgrush
+api-version: 1.13
