@@ -43,7 +43,7 @@ public class Spawn implements CommandExecutor {
                         World world = Bukkit.getWorld(w);
                         Location Spawn1 = new Location(world, x, y, z, yaw, pitch);
 
-                        Mlgrush.getInstance().getConfig().set("Spawn.Lobby", Spawn1);
+                        Mlgrush.getInstance().getConfig().set("Spawn.1", Spawn1);
                     }
 
                     if(args[1].equalsIgnoreCase("Spawn2")){
@@ -56,7 +56,7 @@ public class Spawn implements CommandExecutor {
                         World world = Bukkit.getWorld(w);
                         Location Spawn2 = new Location(world, x, y, z, yaw, pitch);
 
-                        Mlgrush.getInstance().getConfig().set("Spawn.Lobby", Spawn2);
+                        Mlgrush.getInstance().getConfig().set("Spawn.2", Spawn2);
                     }
                 }
             }
