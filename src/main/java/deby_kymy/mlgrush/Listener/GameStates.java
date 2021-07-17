@@ -8,6 +8,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 
 
 public class GameStates implements Listener {
@@ -16,6 +20,8 @@ public class GameStates implements Listener {
     private static int xp;
     private static int scheduler;
     public static boolean started = false;
+    public static int i = 0;
+
 
     public static void count(){
 
@@ -80,5 +86,49 @@ public class GameStates implements Listener {
     }
 
 
+
+    public static void bedCounter(Player player){
+        i++;
+    }
+
+
+    public static void killCounter(Player player){
+
+        int k = 0;
+        k++;
+
+
+
+    }
+
+
+
+    public static void setScoreboard(Player player){
+
+        final ScoreboardManager sm = Bukkit.getScoreboardManager();
+        assert sm != null;
+        final Scoreboard scoreboard;
+
+
+        if (player.getScoreboard() == Bukkit.getScoreboardManager().getMainScoreboard()) {
+            scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+            player.setScoreboard(scoreboard);
+        } else {
+            scoreboard = player.getScoreboard();
+
+
+            final Objective o = scoreboard.registerNewObjective("how2mc", "dummy", "§bHow§f2mc§b.de");
+            o.setDisplaySlot(DisplaySlot.SIDEBAR);
+            o.getScore("§aName:").setScore(0);
+            o.getScore(player.getName()).setScore(1);
+            o.getScore("§aBeds:").setScore(2);
+            o.getScore("§f" + i ).setScore(3);
+            o.getScore("§aKills:").setScore(4);
+
+
+            player.setScoreboard(scoreboard);
+        }
+
+    }
 
 }

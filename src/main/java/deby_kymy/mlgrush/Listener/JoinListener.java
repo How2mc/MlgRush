@@ -57,6 +57,11 @@ public class JoinListener implements Listener {
             }
 
 
+        for (final Player all : Bukkit.getOnlinePlayers()) {
+            GameStates.setScoreboard(event.getPlayer());
+        }
+
+
     }
 
         public void count(){
@@ -163,7 +168,7 @@ public class JoinListener implements Listener {
 
                     try {
                         out.writeUTF("Connect");
-                        out.writeUTF("MLG-Rush-1");
+                        out.writeUTF("Lobby-1");
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }

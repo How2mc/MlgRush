@@ -1,4 +1,11 @@
 name: Mlgrush
 version: ${project.version}
 main: deby_kymy.mlgrush.Mlgrush
-api-version: 1.13
+api-version: 1.17
+author: byKyMy
+
+commands:
+  mlgrush:
+    description: main command
+
+

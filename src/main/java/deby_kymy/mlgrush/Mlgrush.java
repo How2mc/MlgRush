@@ -1,8 +1,13 @@
 package deby_kymy.mlgrush;
 
+import deby_kymy.mlgrush.Commands.Spawn;
+import deby_kymy.mlgrush.Listener.GameStates;
+import deby_kymy.mlgrush.Listener.JoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class Mlgrush extends JavaPlugin {
 
@@ -18,6 +23,10 @@ public final class Mlgrush extends JavaPlugin {
 
 
         PluginManager pluginManager = Bukkit.getPluginManager();
+        pluginManager.registerEvents(new JoinListener(), this);
+        pluginManager.registerEvents(new GameStates(), this);
+
+        Objects.requireNonNull(getCommand("mlgrush")).setExecutor(new Spawn());
 
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
