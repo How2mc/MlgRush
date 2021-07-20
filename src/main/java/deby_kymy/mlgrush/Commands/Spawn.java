@@ -31,6 +31,7 @@ public class Spawn implements CommandExecutor {
                         Location LobbySpawn = new Location(world, x, y, z, yaw, pitch);
 
                         Mlgrush.getInstance().getConfig().set("Spawn.Lobby", LobbySpawn);
+                        Mlgrush.getInstance().saveConfig();
                     }
 
                     if(args[1].equalsIgnoreCase("Spawn1")){
@@ -44,6 +45,7 @@ public class Spawn implements CommandExecutor {
                         Location Spawn1 = new Location(world, x, y, z, yaw, pitch);
 
                         Mlgrush.getInstance().getConfig().set("Spawn.1", Spawn1);
+                        Mlgrush.getInstance().saveConfig();
                     }
 
                     if(args[1].equalsIgnoreCase("Spawn2")){
@@ -57,6 +59,7 @@ public class Spawn implements CommandExecutor {
                         Location Spawn2 = new Location(world, x, y, z, yaw, pitch);
 
                         Mlgrush.getInstance().getConfig().set("Spawn.2", Spawn2);
+                        Mlgrush.getInstance().saveConfig();
                     }
                 }
             }
