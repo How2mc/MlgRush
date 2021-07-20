@@ -1,10 +1,9 @@
 package deby_kymy.mlgrush;
 
+import com.sun.tools.javac.code.Attribute;
 import deby_kymy.mlgrush.Commands.Spawn;
-import deby_kymy.mlgrush.Listener.BreakBed;
-import deby_kymy.mlgrush.Listener.GameStates;
-import deby_kymy.mlgrush.Listener.JoinListener;
-import deby_kymy.mlgrush.Listener.KillCounter;
+import deby_kymy.mlgrush.Listener.*;
+import deby_kymy.mlgrush.gamestates.EndLobbyPhase;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -26,11 +25,18 @@ public final class Mlgrush extends JavaPlugin {
 
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new JoinListener(), this);
-        pluginManager.registerEvents(new GameStates(), this);
         pluginManager.registerEvents(new BreakBed(), this);
         pluginManager.registerEvents(new KillCounter(), this);
+        pluginManager.registerEvents(new Leave(), this);
+        pluginManager.registerEvents(new NoHunger(), this);
+        pluginManager.registerEvents(new NoPvP(), this);
+
 
         Objects.requireNonNull(getCommand("mlgrush")).setExecutor(new Spawn());
+
+        instance = this;
+
+
 
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
